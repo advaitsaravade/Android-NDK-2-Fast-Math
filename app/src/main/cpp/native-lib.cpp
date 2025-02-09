@@ -15,3 +15,17 @@ Java_com_example_ndkhelloworld_MainActivity_fibonacciNative(
     }
     return b;
 }
+
+extern "C" JNIEXPORT jint JNICALL
+Java_com_example_ndkhelloworld_MainActivity_factorialNative(
+        JNIEnv *env,
+        jobject,
+        jint n
+) {
+    if (n < 0) return -1; // Return -1 for invalid input (negative numbers)
+    jint result = 1;
+    for (jint i = 2; i <= n; i++) {
+        result *= i;
+    }
+    return result;
+}
